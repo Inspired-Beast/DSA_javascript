@@ -52,16 +52,16 @@ class Heap{
             // comparing the rightIndex child
             // note we are changing maxIndex on both if's so as to see that
             // we swap the parent only with child node which has most value.
-            if(rightIndex < size && this.#heap[rightIndex] > this.#heap[rightIndex]){
+            if(rightIndex < size && this.#heap[rightIndex] > this.#heap[maxIndex]){
                 maxIndex = rightIndex
             }
 
-            if(maxIndex!=index){
+            if(maxIndex!=index && this.heap[index]<=this.heap[maxIndex]){
                 this.#swap(maxIndex, index)
-                index = maxIndex
             }else{
                 return;
             }
+            index = maxIndex
         }
 
     }
