@@ -38,7 +38,7 @@ var calculateSlope =(arr) =>{
     return ((arr[0]**2 + arr[1]**2)**(1/2))
 }
 
-// NOTE - we can't use object as it may have duplicate values
+// NOTE - we can't use object as it may have duplicate values and object will not allow that
 // Brief solution
 
 var kClosest = function(points, k) {

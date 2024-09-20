@@ -12,6 +12,8 @@
 
 // In this example, the numbers 1, 2, 3, 4, and 5 form a consecutive sequence, and the length is 5.
 
+// link - https://leetcode.com/problems/longest-consecutive-sequence/description
+
 // Brute force method 
 
 function longestConsecutiveSequence(nums){
