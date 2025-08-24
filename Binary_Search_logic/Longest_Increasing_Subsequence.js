@@ -36,10 +36,12 @@ var lengthOfLIS = function(nums) {
     }
     let temp = [nums[0]]
     for(let i=1; i< nums.length; i++){
+        // if the greatest value of temp array is smaller then number being iterated then push that to temp array
         if(temp[temp.length-1]<nums[i]){
             temp.push(nums[i])
         }
         else{
+            // this binary search will check for values greater than the nums[i] and replace the least greatest in temp array1
             let left = 0
             let right = temp.length-1
             while(left<right){

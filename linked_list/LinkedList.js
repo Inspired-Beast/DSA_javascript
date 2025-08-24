@@ -84,15 +84,13 @@ class LinkedList {
         let prev = null
         let after = this.head.next
         this.head = this.tail
-        this.tail = temp;
-        let check = this.length
+        this.tail = temp
         
-        while(check){
-            after = temp.next;
+        while(temp){
+            after = temp.next
             temp.next = prev
             prev = temp
-            temp = after;
-            check--
+            temp = after 
             
         }
         return this

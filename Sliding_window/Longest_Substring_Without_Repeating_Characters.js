@@ -59,3 +59,29 @@ var lengthOfLongestSubstring = function(s) {
     
     return max
 };
+
+
+
+////////////////////////////////////////////////////////////
+// Brute forced sliding window
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let final = 0
+    for(let left=0; left<s.length; left++){
+        let arr = [s[left]]
+        let right = left +1
+        while(right<s.length){
+            if(arr.indexOf(s[right])!==-1){
+                break
+            }
+            arr.push(s[right])
+            right++
+        }
+        console.log(arr)
+        final = Math.max(final, arr.length)
+    }
+    return final    
+};

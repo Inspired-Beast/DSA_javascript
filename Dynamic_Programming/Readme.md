@@ -1,5 +1,6 @@
 Dynamic Programming is a method used in mathematics and computer science to solve complex problems by breaking them down into simpler subproblems. By solving each subproblem only once and storing the results, it avoids redundant computations, leading to more efficient solutions for a wide range of problems.
 
+link - https://stackoverflow.blog/2022/01/31/the-complete-beginners-guide-to-dynamic-programming/
 link - https://www.geeksforgeeks.org/dynamic-programming/
 
 How Does Dynamic Programming (DP) Work?
@@ -35,7 +36,7 @@ redundant function calling.
 
 let processtwo = 0
 let memoizedArray = [] // we will use this array to mark down which functions need to be called again 
-// for instancesay in this recursice call we already called function for n=5 and then again when f(n=6)
+// for instance say in this recursice call we already called function for n=5 and then again when f(n=6)
 // is recursed it will call f(5) and if we have this array denoting those values then we wont need to calculate 
 // f(5)
 function fibonacciMemoized(n){

@@ -4,7 +4,7 @@
 // In simpler terms, the function modifies the given array by shifting all elements that are not equal to val to the start of the array, 
 // and it returns the length of the array after the removal of val.
 
-
+// https://leetcode.com/problems/remove-element/submissions/1741884132/
 
 // Constraints:
 
@@ -132,3 +132,4 @@ function removeElement(nums, val) {
     // elements equal to 'val' have been removed.
     return i;
 }
+

@@ -1,6 +1,6 @@
 // The function maxProfit aims to find the maximum profit one could achieve by buying and selling a stock once, given an array of stock prices (prices).
 
-
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
 // Constraints:
 
@@ -92,3 +92,19 @@ function maxProfit(prices) {
     // Return this value.
     return maxProfit;
 }
+
+
+// Sliding window approach
+var maxProfit = function(prices) {
+    let max = 0
+    let left = 0
+    let right = 1
+    while(right<prices.length){
+        while(prices[right]<prices[left]){
+            left++
+        }
+        max = Math.max(max, prices[right] - prices[left])
+        right++
+    }
+    return max
+};
