@@ -37,7 +37,7 @@
 var combinationSum = function(candidates, target) {
     let result = []
     let temp = []
-    let sum   =0
+    let sum =0
     function backtrack(nums, i, sum){
         if(sum===target){
             return result.push([...temp])
@@ -49,7 +49,6 @@ var combinationSum = function(candidates, target) {
         backtrack(nums,i, sum+nums[i]) // not incrementing to add repeated numbers
         temp.pop()
         backtrack(nums,i+1, sum)
-
 
     }
 
