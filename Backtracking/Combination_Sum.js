@@ -48,6 +48,7 @@ var combinationSum = function(candidates, target) {
         temp.push(nums[i])
         backtrack(nums,i, sum+nums[i]) // not incrementing to add repeated numbers
         temp.pop()
+        // recursing to get the next element of candidates array
         backtrack(nums,i+1, sum)
 
     }
