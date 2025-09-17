@@ -25,41 +25,48 @@
  */
 var canFinish = function(numCourses, prerequisites) {
     let adjacencyList = {}
+    // Creating Set so that we can keep track of vertex being visited so that one can check if there is cyclic graph
     let visited = new Set()
-
-    for(let course of prerequisites){
-        if(!adjacencyList[course[0]]){
-            adjacencyList[course[0]] = [course[1]]
-        }else{
-            adjacencyList[course[0]].push(course[1])
+    // Creating graph based on matrix provided, specifically using adjacencyList
+    for(let arr of prerequisites){
+        if(!adjacencyList.hasOwnProperty(arr[0])){
+            adjacencyList[arr[0]] = []
         }
+        adjacencyList[arr[0]].push(arr[1])
     }
 
-    var DFS = (key) =>{
-        if(visited.has(key)){ // meaning duplicated
+    // Using DFS to check the edges or neighbors of each vertex and check if it a cyclic graph or not, as in case of cyclic graph the schedule is impossible, so it has to be non cyclic graph
+    var dfs = function(vertex, visited){
+        // Incase visited set has the vertex then it is cyclic so then we will return false
+        if(visited.has(vertex)){
             return false
         }
-        if(!adjacencyList[key] || adjacencyList[key].length===0){ // checked the course
+        // Vertex having no edges/neighbors meaning there is no further traversal hence stopping and returning true
+        if(!adjacencyList[vertex] || adjacencyList[vertex].length===0){
             return true
         }
-        visited.add(key)
-        if(adjacencyList[key]){
-            for(let value of adjacencyList[key]){
-                if(!DFS(value)){
-                    return false
-                }
+        // adding vertex to set so that we can track which vertex is visited
+        visited.add(vertex)
+        for(let ele of adjacencyList[vertex]){
+            // firstly traversing neighbors of a vertex before going down one vertex
+            if(!dfs(ele, visited)){
+                return false
             }
         }
-        visited.delete(key)
-        adjacencyList[key] = []
-
+        // removing the vertex already explored so that no conflict occurs once the traverse is happening
+        visited.delete(vertex)
+        // similarly removing neigbord or edges so that we don't traverse back 
+        adjacencyList[vertex] = []
+        // returining true as on traversing no cycle was found
         return true
     }
 
-    for(let key in adjacencyList){
-        if(!DFS(key)){
+    // Looping through Graph (adjacency list vertex by vertex)
+    for(let v in adjacencyList){
+        if(!dfs(v, visited)){
             return false
         }
     }
+    // all goes well no false , hence returning true
     return true
 };

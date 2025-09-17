@@ -98,3 +98,67 @@ var deserialize = function(data) {
 
 
 // Approach 2 - start from bottom left and traversing right to left - https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/1478215/javascript-99-easy-solution-bonus-1-liner
+
+/// BFS 
+// /**
+//  * Encodes a tree to a single string.
+//  *
+//  * @param {TreeNode} root
+//  * @return {string}
+//  */
+// var serialize = function(root) {
+//     let queue = []
+//     queue.push(root)
+//     let result = []
+//     while(queue.length){
+//         let node = queue.shift()
+//         if(node){
+//             result.push(node.val)
+//             queue.push(node.left)
+//             queue.push(node.right)
+//         }else{
+//             result.push("null")
+//         }
+//     }
+//     console.log(result.join("*"))
+//     return result.join("*")
+// };
+
+// /**
+//  * Decodes your encoded data to tree.
+//  *
+//  * @param {string} data
+//  * @return {TreeNode}
+//  */
+// var deserialize = function(data) {
+//     if(data=="null"){
+//         return null
+//     }
+//     data = data.split("*")
+//     let queue  = []
+//     let root = new TreeNode(parseInt(data[0]))
+//     queue.push(root)
+//     let ct = 1
+//     while(queue.length){
+//         console.log(queue)
+//         let temp = queue.shift()
+//         if(data[ct]!=="null"){
+//             temp.left = new TreeNode(parseInt(data[ct]))
+//             queue.push(temp.left)
+//         }
+//         ct++
+//         if(data[ct]!=="null"){
+//             temp.right = new TreeNode(parseInt(data[ct]))
+//             queue.push(temp.right)
+//         }
+//         ct++
+//     }
+//     console.log(root)
+//     return root
+// };
+
+// /**
+//  * Your functions will be called as such:
+//  * deserialize(serialize(root));
+
+//  */

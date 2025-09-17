@@ -62,3 +62,59 @@ function isSame(parent, child){
     // recursing each node starting from left and right and only returing true incase  both root , left and right value matches
     return (isSame(parent.left, child.left) && isSame(parent.right, child.right))
 }
+
+
+// Simple approach using DFS
+// /**
+//  * Definition for a binary tree node.
+//  * function TreeNode(val, left, right) {
+//  *     this.val = (val===undefined ? 0 : val)
+//  *     this.left = (left===undefined ? null : left)
+//  *     this.right = (right===undefined ? null : right)
+//  * }
+//  */
+// /**
+//  * @param {TreeNode} root
+//  * @param {TreeNode} subRoot
+//  * @return {boolean}
+//  */
+// var isSubtree = function(root, subRoot) {
+//     let result = false
+//     var dfs = function(node){
+//         if(!node){
+//             return
+//         }
+//         if(node.val===subRoot.val){
+//             if(isMatch(node, subRoot)){
+//                 result = true
+//                 return
+//             }
+//         }
+//         dfs(node.left)
+//         dfs(node.right)
+//     }
+//     dfs(root)
+//     return result
+// };
+
+// var isMatch = function(tree, subTree){
+//     let matchResult = true
+//     var dfs = function(node, subNode){
+//         if((!node && subNode) || (node && !subNode)){
+//             matchResult = false
+//             return
+//         }
+//         if(!node || !subNode){
+//             return
+//         }
+//         if(node.val!==subNode.val){
+//             matchResult = false
+//             return
+//         }
+//         dfs(node.left, subNode.left)
+//         dfs(node.right, subNode.right)
+
+//     }
+//     dfs(tree, subTree)
+//     return matchResult
+// }

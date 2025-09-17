@@ -1,4 +1,6 @@
  Graph Data Structure is a collection of nodes (vertex) connected by edges(connection). It's used to represent relationships between different entities.
+ 
+ https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/03Graphs.pdf
 
  Graphs connections or edges can be unidirectional or bi directional.
 
