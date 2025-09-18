@@ -23,8 +23,30 @@
 // Object: A fundamental data structure in JavaScript that can also be used as a hash table for storing key-value pairs.
 
 
+// https://leetcode.com/problems/group-anagrams/
 
 // -------------------------
+// Solution using prefilled array
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+    let groupObj = {}
+    for(let str of strs){
+        let temp = new Array(26).fill(0)
+        for(let char of str){
+            temp[char.charCodeAt()-97]++
+        }
+        if(!groupObj[temp.toString()]){
+            groupObj[temp.toString()] = [str]
+        }else{
+            groupObj[temp.toString()].push(str)
+        }
+    }
+    console.log(groupObj)
+    return Object.values(groupObj)
+};
 
 //Solution one using object 
 

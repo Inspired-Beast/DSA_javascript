@@ -19,7 +19,7 @@
 // Output: 2
 
 // https://leetcode.com/problems/jump-game-ii/submissions/1745818898/
-
+// https://www.youtube.com/watch?v=7SBVnw7GSTk
 /**
  * @param {number[]} nums
  * @return {number}
@@ -36,3 +36,24 @@ var jump = function(nums) {
     }
     return jumps
 };
+
+
+// // alternate 
+// /**
+//  * @param {number[]} nums
+//  * @return {number}
+//  */
+// var jump = function(nums) {
+//     let jumps = 0
+//     let max = 0
+//     let steps = 0
+//     for(let i=0; i<nums.length-1; i++){
+//         max = Math.max(max, i+nums[i])
+//         if(i==steps){
+//             ++jumps
+//             steps = max
+//             console.log(steps, jumps, i)
+//         }
+//     }
+//     return jumps
+// };

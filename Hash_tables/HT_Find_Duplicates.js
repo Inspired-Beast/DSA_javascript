@@ -23,6 +23,7 @@
 
 // You are encouraged to solve this exercise using either a Map or an Object, and you can even try both approaches for extra practice!
 
+// https://leetcode.com/problems/find-all-duplicates-in-an-array/submissions/1775129565/
 
 function findDuplicates(arr){
     let checkObj = {}
