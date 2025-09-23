@@ -58,3 +58,25 @@ var topKFrequent = function(nums, k) {
     return Object.entries(numsObj).sort((a,b)=>b[1]-a[1]).slice(0,k).map((e)=>e[0])
 
 };
+
+// without sorting
+var topKFrequent = function(nums, k) {
+    let max = 0
+    let freqObj = nums.reduce((accu, cumm)=> {
+        accu[cumm] =(accu[cumm] || 0) + 1;
+        max = Math.max(accu[cumm], max)
+        return accu}, {})
+    let final = []
+    while(k>0){
+        for(let num in freqObj){
+            if(freqObj[num]===max){
+                final.push(parseInt(num))
+                --k
+            }
+        }
+        if(k>0){
+            --max
+        }
+    }
+    return final
+};

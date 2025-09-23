@@ -44,7 +44,7 @@ function longestConsecutiveSequence(nums){
     return maxsizeNum
 }
 
-// alternate without sort
+// alternate without sort using hash table/ object
 
 function longestConsecutiveSequence(nums) {
  

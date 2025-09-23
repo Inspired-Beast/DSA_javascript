@@ -16,6 +16,7 @@
 // You are not allowed to use any additional data structures (such as arrays) or modify the existing data structure.
 // You can only traverse the linked list once. You can create temporary nodes to make the implementation simpler.
 
+// https://leetcode.com/problems/partition-list/submissions/1778988222/
 
 // Example 1:
 
@@ -83,9 +84,47 @@ function partitionList(x) {
 
 // After the loop, set prev2.next to null to terminate the second linked list.
 
+
 // Connect the two separate linked lists by setting prev1.next to dummy2.next.
 
 // Update the head of the linked list to point to the next node of dummy1.
+
+
+//LEETCODE solution
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} x
+ * @return {ListNode}
+ */
+var partition = function(head, x) {
+    let dummy1 = new ListNode(0)
+    let dummy2 = new ListNode(0)
+    let temp1 = dummy1
+    let temp2 = dummy2
+
+    let temp = head
+    while(temp){
+        if(temp.val<x){
+            temp1.next = temp
+            temp1 = temp1.next
+        }else{
+            temp2.next = temp
+            temp2 = temp2.next
+        }
+        temp = temp.next
+    }
+    temp1.next = dummy2.next
+    temp2.next = null
+    return dummy1.next
+};
 
 
 

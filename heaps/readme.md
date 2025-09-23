@@ -24,7 +24,7 @@ Now how inserting works in heap:
 
 First if you want to add anu element to a heap then make sure that the heap is always complete 
 
-then we will push the value to end of the heap as it is basically a mapped array and then one by one we will compare the value of inserted item with it's parent to make sure it is follwoing the heap's law or rule and if it is not then we will swap out parent and the child values and will keep doing so until it is satisfied  and then we will print out the heap array.
+then we will push the value to end of the heap as it is basically a mapped array and then one by one we will compare the value of inserted item with it's parent to make sure it is following the heap's law or rule and if it is not then we will swap out parent and the child values and will keep doing so until it is satisfied  and then we will print out the heap array.
 
 Once we have inserting done we will finally be able to print the heap in form of array.
 
