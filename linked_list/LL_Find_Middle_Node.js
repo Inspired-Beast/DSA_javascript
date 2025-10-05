@@ -8,6 +8,8 @@
 
 // If the list has an even number of nodes, return the second middle node (the one closer to the end).
 
+// https://leetcode.com/problems/middle-of-the-linked-list/description/
+
 function findMiddleNode(){
     let temp = this.head;
     let temp_next = this.head;
@@ -19,7 +21,7 @@ function findMiddleNode(){
     return temp
 }
 
-EXplaination
+// EXplaination
 
 // The findMiddleNode() function uses the "tortoise and hare" algorithm to find the middle node of a linked list.
 // In the case of an even number of nodes, the temp_next pointer will reach the end of the list, while the temp pointer will point to the first middle node (the one closer to the head). For an odd number of nodes, the temp_next pointer will go beyond the end of the list, and the temp pointer will point to the exact middle node.
