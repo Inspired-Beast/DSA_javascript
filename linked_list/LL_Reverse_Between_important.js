@@ -50,3 +50,47 @@ function reverseBetween(m, n){
 
 // explaination - https://algo.monster/liteproblems/92
 // https://www.youtube.com/watch?v=oDL8vuu2Q0E
+
+
+// https://leetcode.com/problems/reverse-linked-list-ii/description/
+//leetcode solution
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} left
+ * @param {number} right
+ * @return {ListNode}
+ */
+var reverseBetween = function(head, left, right) {
+    let temp = head
+    let firstDummyList = new ListNode(0)
+    let firstPointer = firstDummyList
+
+    for(let i=0; i<left-1; i++){
+        firstPointer.next = temp
+        temp = temp.next
+        firstPointer = firstPointer.next
+    }
+    // Returning first part of linked list if 
+    if(!temp){
+        return firstDummyList.next
+    }
+    let prev = null
+    let after = temp
+    let pointOfContact = temp
+    for(let j=0; j<=right-left; j++){
+        let storeNext = after.next
+        after.next = prev
+        prev = after
+        after = storeNext
+    }
+    pointOfContact.next = after
+    firstPointer.next = prev
+    return firstDummyList.next
+}; 
