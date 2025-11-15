@@ -18,7 +18,8 @@
 
 // https://leetcode.com/problems/product-of-array-except-self/description/
 
-// solution - https://youtu.be/8gerngR808w
+
+// solution - https://youtu.be/ (Not optimized)
 
 /**
  * @param {number[]} nums
@@ -43,4 +44,31 @@ var productExceptSelf = function(nums) {
         finalArr[k] = preFixProd[k] * postFixProd[k]
     }
     return finalArr
+};
+
+
+// Most optimized with linear space
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let resultArr = new Array(nums.length).fill(1)
+
+    //prefix
+    let prefix = 1
+    for(let i=0; i<nums.length; i++){
+        resultArr[i] *=prefix // muliplicating earlier so that indexed place element is not multiplied at that place
+        prefix *= nums[i]
+    }
+
+    //suffix
+    let suffix = 1
+    for(let j=nums.length-1; j>=0; --j){
+        resultArr[j] *=suffix // similarly excluding indexed number multiplication
+        suffix *= nums[j]
+    }
+
+    return resultArr
 };

@@ -32,25 +32,21 @@
  * @param {number[]} nums
  * @return {number}
  */
-// using divide and conquer
-var findMin = function(nums){
-    if(nums.length<=1){
-        return nums[0]
-    }
-    let min = 0
-    let max = nums.length-1;
+var findMin = function(nums) {
+    let left = 0
+    let right = nums.length-1
 
-    while(min<max){
-        let mid = Math.floor((max + min)/2)
-
-        if(nums[mid]>nums[max]){
-            min = mid +1
+    while(left<right){// not equating left and right as we want smallest number and that will be on left
+        let mid = Math.floor((right + left)/2)
+        if(nums[mid]>nums[right]){ // since we know right side elements are bigger therefore we will start from mid to right, hence shifting left to right of mid and taking new array to check from mid --- right
+            left = mid+1
         }else{
-            max = mid
+            // incase mid is smaller than we will shift right to left of mid and then take that set of left----mid as new array and check smaller number there
+            right = mid
         }
     }
-    return nums[min]
-}
+    return nums[left]
+};
 
 // using inbuilt method
 // var findMin = function(nums) {

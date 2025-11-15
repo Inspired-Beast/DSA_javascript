@@ -73,6 +73,7 @@ Trie.prototype.search = function(word) {
  * @return {boolean}
  */
 Trie.prototype.startsWith = function(prefix) {
+    // shallow copying so that original this.root doesn't change when we traverse or move node by node
     let node = this.root;
 
     for(const char of prefix){

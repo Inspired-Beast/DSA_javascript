@@ -2,6 +2,8 @@
 
 // The insertionSort() method should sort the linked list in place by repeatedly inserting each unsorted node into its correct position in the sorted part of the list.  If the length of the linked list is less than 2, the method should simply return because the list is already sorted.  After the sort, the method should update the head and tail pointers of the linked list to point to the first and last nodes, respectively.
 
+// https://leetcode.com/problems/insertion-sort-list/submissions/1819215220/
+
 function insertionSort(){
     let sorted = this.head;
     let unsorted = this.head.next;
@@ -177,3 +179,42 @@ function insertionSort(){
 //     }
 //     this.tail = temp;
 // }
+
+//------------------------------Leetcode solution-----------------
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var insertionSortList = function(head) {
+    let sorted = head
+    //fixing single node as sorted head
+    let unsorted = head.next
+    sorted.next = null
+
+    while(unsorted){
+        let currentNode = unsorted
+        unsorted = unsorted.next
+        // if current Node is less than adjusting sorted with less item being in front
+        if(currentNode.val<sorted.val){
+            currentNode.next = sorted
+            sorted = currentNode
+        }else{
+            // if current is bigger than sortedhead, than traversing in sorted LL to find its rightful place
+            let newHead = sorted
+            // checking currentNode with newHead.next as we have already check its place with newHead above
+            while(newHead.next && currentNode.val > newHead.next.val){
+                newHead = newHead.next
+            }
+            currentNode.next = newHead.next
+            newHead.next = currentNode
+        }
+    }
+    return sorted
+};
