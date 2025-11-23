@@ -13,7 +13,7 @@
 // Input: target = 11, nums = [1,1,1,1,1,1,1,1]
 // Output: 0
 
-// https://leetcode.com/problems/minimum-size-subarray-sum/description//
+// https://leetcode.com/problems/minimum-size-subarray-sum/description
 
 /**
  * @param {number} target

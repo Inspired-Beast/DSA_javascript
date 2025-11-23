@@ -55,3 +55,22 @@ var maxSlidingWindow = function(nums, k) {
 
     return result
 };
+
+```python
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        final_list = []
+        dequeue = []
+        for idx, num in enumerate(nums):
+            if len(dequeue) >0 and idx-dequeue[0]>=k:
+                dequeue.pop(0)
+
+            while len(dequeue) >0 and nums[dequeue[-1]] <nums[idx]:
+                dequeue.pop()
+
+            dequeue.append(idx)
+            if idx >=k-1:
+                final_list.append(nums[dequeue[0]])
+
+        return final_list
+```
