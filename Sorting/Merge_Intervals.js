@@ -36,3 +36,20 @@ var merge = function(intervals) {
     newArr.push(temp) // since we have the greatest values in temp hence pushing it at the end
     return newArr
 };
+
+```python
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        final_list = []
+        intervals.sort(key=lambda x: x[0])
+        temp = intervals[0]
+        for ind in range(0, len(intervals)):
+            if temp[1]>=intervals[ind][0]:
+                temp[1] = max(temp[1], intervals[ind][1])
+            else:
+                final_list.append(temp)
+                temp = intervals[ind]
+        final_list.append(temp)
+        return final_list
+        
+```

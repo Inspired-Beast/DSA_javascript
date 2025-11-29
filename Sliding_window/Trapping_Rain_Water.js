@@ -110,3 +110,29 @@ var trap = function(height) {
     
     return trappedWater
 };
+
+```python solution
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        left_end: int = 0
+        right_end: int = len(height)-1
+        left_max: int = height[left_end]
+        right_max: int = height[right_end]
+        trapped_rain: int = 0
+
+        # Taking left and right ends coming to the middle
+        while left_end<right_end:
+            if right_max>left_max:
+                left_end+=1
+                if left_max > height[left_end]:
+                    trapped_rain += left_max - height[left_end]
+                else:
+                    left_max = height[left_end]
+            else:
+                right_end-=1
+                if right_max > height[right_end]:
+                    trapped_rain += right_max - height[right_end]
+                else:
+                    right_max = height[right_end]
+        return trapped_rain
+```
