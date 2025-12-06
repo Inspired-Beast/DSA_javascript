@@ -65,3 +65,18 @@ var dailyTemperatures = function(temperatures) {
     }
     return days
 };
+
+
+
+```python
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack = []
+        final = [0 for i in range(len(temperatures))]
+        for idx, value in enumerate(temperatures):
+            while len(stack) and temperatures[idx]>temperatures[stack[-1]]:
+                temp = stack.pop()
+                final[temp] = idx-temp
+            stack.append(idx)
+        return final
+```

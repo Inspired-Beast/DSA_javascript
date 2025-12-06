@@ -51,3 +51,53 @@ var largestRectangleArea = function(heights) {
     return maxArea
     
 };
+
+
+// brute force 
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var largestRectangleArea = function(heights) {
+    if(heights.length===1){
+        return heights[0]
+    }
+    let max = 0
+    for(let i=0; i<heights.length; i++){
+        let area = 0
+        let minHeight = heights[i]
+        for(let j=i+1; j<heights.length; j++){
+            minHeight = Math.min(heights[j], minHeight)
+            area = (j-i+1) * minHeight
+            max = Math.max(max, area, heights[j], heights[i])
+        }
+    }
+    return max
+};
+
+```python
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        heightStack = []
+        positionStack = []
+        maxArea = 0
+        
+        for idx, value in enumerate(heights):
+            if len(heightStack)==0 or value>heightStack[-1]:
+                heightStack.append(value)
+                positionStack.append(idx)
+            elif value<heightStack[-1]:
+                while len(heightStack) and value<heightStack[-1]:
+                    lastHeight = heightStack.pop()
+                    lastPosition = positionStack.pop()
+                    area = lastHeight * (idx-lastPosition)
+                    maxArea = max(area, maxArea)
+                heightStack.append(value)
+                positionStack.append(lastPosition)
+        while len(heightStack):
+            lastHeight = heightStack.pop()
+            lastPosition = positionStack.pop()
+            area = lastHeight * (len(heights)-lastPosition)
+            maxArea = max(area, maxArea)
+        return maxArea
+```
