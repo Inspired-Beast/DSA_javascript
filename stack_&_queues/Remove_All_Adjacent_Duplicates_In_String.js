@@ -39,3 +39,5 @@ var removeDuplicates = function(s) {
     return resultStack.reverse().join("")
 };
 
+//bit different approach
+

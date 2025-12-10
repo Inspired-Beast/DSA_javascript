@@ -29,7 +29,7 @@ function insertionSort(array){
             array[j+1] = array[j]
         }
         array[j+1] = temp // once values are shifted in above loop we will insert the temp to the place which should
-        // have minimum value after all numbers greater than temp has been shifted to one place begore
+        // have minimum value after all numbers greater than temp has been shifted to one place before
     }
     return array
 }
